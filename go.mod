@@ -1,4 +1,4 @@
-module auth
+module github.com/hamidjon04/auth
 
 go 1.23.0
 
