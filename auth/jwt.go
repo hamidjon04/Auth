@@ -21,7 +21,7 @@ func GenerateJWT(jwtKey string, items map[string]interface{}, expiry time.Durati
 func ValidateJWT(jwtKey string, tokenStr string)(*Claim, error){
 	claims := &Claim{}
 	token, err := jwt.ParseWithClaims(tokenStr, claims, func(t *jwt.Token) (interface{}, error) {
-		return jwtKey, nil
+		return []byte(jwtKey), nil
 	})
 	if err != nil || !token.Valid{
 		return nil, err
