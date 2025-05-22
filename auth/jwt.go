@@ -15,7 +15,7 @@ func GenerateJWT(jwtKey string, items map[string]interface{}, expiry time.Durati
 		},
 	}
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	return token.SignedString(jwtKey)
+	return token.SignedString([]byte(jwtKey))
 }
 
 func ValidateJWT(jwtKey string, tokenStr string)(*Claim, error){
